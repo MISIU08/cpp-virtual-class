@@ -55,7 +55,7 @@ This approach is really unefective, What if we want to add a second animation? W
 
 Here virtual classes could come in handy.
 <br>
-Why?Because they would allow to make a common interface to use, for multiple classes 
+Why? Because they could allow to make a common "interface" to use, for both entity and player.
 
 ```
 virtual class entity{
@@ -87,7 +87,6 @@ void animation1(sprite& s){
 }
 
 ```
-
 Now we can use this function for both player and enemy
 ```
 int main(){
@@ -101,7 +100,7 @@ int main(){
 }
 ```
 
-What if we want to make a new animation? We can just make a new function accepting an entity:
+What if we want to make a new animation? We can just make a new function accepting the virtual class entity:
 ```
 namespace animations{
 void animation1(sprite& s){//code}
@@ -140,5 +139,5 @@ Many of you could probably point out that we can already do something similar: u
 But It think virtual classes have some advantages.
 
 ### Advantage nb 1
-The class
-
+Classes interfacable with the virtual class don't have to be directly related with it.
+<br>
