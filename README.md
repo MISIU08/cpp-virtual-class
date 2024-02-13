@@ -6,18 +6,36 @@ They define a common "interface" to use witch can be later implemented for multi
 I thought it would be cool to have it in C++
 So I came up with this:
 ```
-virtual class window{
-    void show();
-    void hide();
-    void resize(int x,int y);
+virtual class sprite{
+    void set_pos(int x, int y);
+    void move(int x_steps,int y_steps,int seconds);
 }
 
-class main_window{
-    void show_window();
-    void hide_window();
-    void resize_window();
-    void add_element();
+class player{
+    void set_pos(int x, int y);
+    void move(int x_steps,int y_steps,int seconds);
+    void change_state(state& s);
+
 }
+virtual class sprite: player{
+    using set_pos = player::set_pos;
+    using move = player::move;
+}
+
+class enemy{
+    void set_pos(int x, int y);
+    void move(int x_steps,int y_steps,int seconds);
+    void change_agreesion_level(agression_level& agg_lvl);
+}
+
+virtual class sprite: enemy{
+    using set_pos = enemy::set_pos;
+    using move = enemy::move;
+}
+
+
+
+
 
 
 ```
