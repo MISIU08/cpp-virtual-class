@@ -11,16 +11,22 @@ I thought it would be cool to have it in C++
 Suppose we have a class player and a class enemy:
 ```
 class player{
+public:
     void set_player_pos(int x, int y);
     void move_player(int x_steps,int y_steps,int seconds);
     void change_state(state& s);
+    int posx;
+    int posy;
 
 }
 
 class enemy{
+public:
     void set_enemy_pos(int x, int y);
     void move_enemy(int x_steps,int y_steps,int seconds);
     void change_agreesion_level(agression_level& agg_lvl);
+    int posx;
+    int posy;
 }
 ```
 
@@ -47,9 +53,9 @@ void animation1(enemy& e){
 
 This approach is really unefective, What if we want to add a second animation? What if we want to add a third entity?
 
-here come virtual classes.
+Here virtual classes could come in handy.
 <br>
-virtual classes would allow to make a common interface to use for multiple classes 
+Why?Because they would allow to make a common interface to use, for multiple classes 
 
 ```
 virtual class entity{
@@ -95,7 +101,7 @@ int main(){
 }
 ```
 
-Now what if we want to make a new animation? We can just make a new function accepting an entity:
+What if we want to make a new animation? We can just make a new function accepting an entity:
 ```
 namespace animations{
 void animation1(sprite& s){//code}
@@ -107,5 +113,32 @@ void animation2(sprite& s){
 }
 
 ```
+And what about adding a new entity?
+```
+class square{
+    int posx;
+    int posy;
+}
 
+virtual class entity:square{
+    void set_pos(int x,int y){
+        this->posx=x;
+        this->posy =y;
+    }
+    void move(int x_steps, int y_steps, int seconds){
+        //code
+    }
+}
+
+```
+
+
+## Advantage over classes with pure virtual function
+
+Many of you could probably point out that we can already do something similar: use classes with pure virtual functions.
+<br>
+But It think virtual classes have some advantages.
+
+### Advantage nb 1
+The class
 
