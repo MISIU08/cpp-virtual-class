@@ -1,4 +1,4 @@
-# Virtual class: An idea for a c++ language extension
+# Virtual class: An idea for a C++ language extension
 
 Some programming languages have an interesting way to share common behaviour between multiple classes, in C# they are called interfaces and in rust they are called traits.
 <br>
