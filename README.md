@@ -33,8 +33,25 @@ virtual class sprite: enemy{
     using move = enemy::move;
 }
 
-void 
+//the function doesn't care what kind of sprite it is getting
+void make_animation_with(sprite& s){
+    s.move(15,5,1);
+    s.move(5,15,1);
+    s.move(-15,-5,1);
+    s.move(-5,-15,1);
+}
 
+int main(){
+    player p;
+    enemy n;
+
+    //calling: void make_animation_with(sprite& s)
+    make_animation_with(p);
+
+    //calling: void make_animation_with(sprite& s)
+    make_animation_with(e);
+
+}
 
 
 
