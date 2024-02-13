@@ -2,7 +2,7 @@
 
 Some programming languages have an interesting way to share common behaviour between multiple classes, in C# they are called interfaces and in rust they are called traits.
 <br>
-They define a common "interface" to use witch can be later implemented for multiple classes
+They allow you to create a common "interface" for using multiple classes.
 
 I thought it would be cool to have it in C++
 
