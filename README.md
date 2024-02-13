@@ -68,4 +68,44 @@ virtual class entity: enemy{
 }
 ```
 
-Now we can make an animate function accepting all entyties witch define an "interface" for 
+Now we can make an animate function accepting all entities witch define an "interface" for the virtual class entity:
+
+```
+namespace animations{
+void animation1(sprite& s){
+    s.move(15,5,1);
+    s.move(5,15,1);
+    s.move(-15,-5,1);
+    s.move(-5,-15,1);
+}
+}
+
+```
+
+Now we can use this function for both player and enemy
+```
+int main(){
+    player p;
+    enemy en;
+
+    //calls void animation1(sprite& s)
+    animations::animation1(p);
+    //this also calls void animation1(sprite& s)
+    animations::animation1(en);
+}
+```
+
+Now what if we want to make a new animation? We can just make a new function accepting an entity:
+```
+namespace animations{
+void animation1(sprite& s){//code}
+
+void animation2(sprite& s){
+    s.move(20,-20,1);
+    s.move(-20,20,1);
+}
+}
+
+```
+
+
