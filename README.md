@@ -1,10 +1,12 @@
-## Virtual class: An idea for a c++ language extension
+# Virtual class: An idea for a c++ language extension
 
 Some programming languages have an interesting way to share common behaviour between multiple classes, in C# they are called interfaces and in rust they are called traits.
 <br>
 They define a common "interface" to use witch can be later implemented for multiple classes
 
 I thought it would be cool to have it in C++
+
+## What is their purpose?
 
 Suppose we have a class player and a class enemy:
 ```
@@ -42,3 +44,28 @@ void animation1(enemy& e){
 }
 }
 ```
+
+This approach is really unefective, What if we want to add a second animation? What if we want to add a third entity?
+
+here come virtual classes.
+<br>
+virtual classes would allow to make a common interface to use for multiple classes 
+
+```
+virtual class entity{
+    void set_pos(int x, int y);
+    void move(int x_steps,int y_steps,int seconds);
+}
+
+virtual class entity: player{
+    using set_pos = player::set_player_pos;
+    using move = player::move;
+}
+
+virtual class entity: enemy{
+    using set_pos = enemy::set_enemy_pos;
+    using move = enemy::move_enemy
+}
+```
+
+Now we can make an animate function accepting all entyties witch define an "interface" for 
