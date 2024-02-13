@@ -35,6 +35,7 @@ virtual class sprite: enemy{
 }
 
 //the function doesn't care what kind of sprite it is getting
+//it uses the virtual class sprite to interface with all kinds of sprite
 void make_animation_with(sprite& s){
     s.move(15,5,1);
     s.move(5,15,1);
@@ -53,7 +54,5 @@ int main(){
     make_animation_with(e);
 
 }
-
-
 
 ```
